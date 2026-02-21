@@ -1,0 +1,153 @@
+/* ===============================
+   PLAYFUL MODERN THEME
+   Responsive – Mobile First
+================================ */
+
+/* ---------- ROOT COLORS ---------- */
+:root {
+    --primary-blue: #4ECDC4;
+    --accent-yellow: #FFE66D;
+    --cta-coral: #FF6B6B;
+    --dark-text: #1A1A1A;
+    --soft-bg: #F8F9FB;
+}
+
+/* ---------- SECTION ---------- */
+
+.enquiry-section {
+    min-height: 100vh;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-yellow));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- HEADING ---------- */
+
+.enquiry-section h1 {
+    font-size: 28px;
+    color: var(--dark-text);
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* ---------- FORM CARD ---------- */
+
+.enquiry-form {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    display: grid;
+    gap: 14px;
+}
+
+/* ---------- INPUTS ---------- */
+
+.enquiry-form input,
+.enquiry-form textarea,
+.enquiry-form select {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+    font-family: inherit;
+    transition: 0.25s ease;
+}
+
+/* Focus */
+.enquiry-form input:focus,
+.enquiry-form textarea:focus,
+.enquiry-form select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+}
+
+/* Textarea */
+.enquiry-form textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* ---------- BUTTON ---------- */
+
+.enquiry-form button {
+    background: var(--cta-coral);
+    padding: 14px;
+    border-radius: 50px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Hover (Desktop Only Feel) */
+.enquiry-form button:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+}
+
+/* ---------- SUCCESS MESSAGE ---------- */
+
+.alert-success {
+    background: var(--primary-blue);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* ===============================
+   TABLET VIEW (768px+)
+================================ */
+
+@media (min-width: 768px) {
+
+    .enquiry-section {
+        padding: 80px 40px;
+    }
+
+    .enquiry-section h1 {
+        font-size: 36px;
+    }
+
+    .enquiry-form {
+        padding: 35px;
+        gap: 16px;
+    }
+
+}
+
+/* ===============================
+   LAPTOP / DESKTOP (1024px+)
+================================ */
+
+@media (min-width: 1024px) {
+
+    .enquiry-section {
+        padding: 100px 10%;
+    }
+
+    .enquiry-section h1 {
+        font-size: 44px;
+        margin-bottom: 35px;
+    }
+
+    .enquiry-form {
+        padding: 45px;
+        border-radius: 28px;
+        gap: 18px;
+    }
+
+}

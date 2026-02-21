@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+
+    <div class="bg-anim">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="container hero-grid">
+
+        <div class="hero-text reveal">
+            <h1>Where Little Dreams Begin ✨</h1>
+
+            <p>
+                Nurturing young minds with love, creativity and joyful learning
+                in a safe environment.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="/enquiry" class="btn-primary">Enquire Now</a>
+                <a href="/programs" class="btn-outline">View Programs</a>
+            </div>
+        </div>
+
+        <div class="hero-image reveal">
+            <img src="{{ url_for('static', filename='images/hero-kids.png') }}" alt="My Kids Zone Logo">
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= PROGRAMS ================= -->
+<section class="programs reveal">
+
+    <div class="programs-header">
+        <h2>Our Programs</h2>
+        <p>Age-appropriate learning programs designed to nurture curiosity, confidence and creativity.</p>
+    </div>
+
+    <div class="program-grid">
+
+        <div class="program-card">
+            <div class="program-icon">🧸</div>
+            <h3>Playgroup</h3>
+            <p>Early sensory play, motor skill development and joyful social interaction.</p>
+        </div>
+
+        <div class="program-card">
+            <div class="program-icon">🎨</div>
+            <h3>Nursery</h3>
+            <p>Creative learning, foundational literacy and structured exploration.</p>
+        </div>
+
+        <div class="program-card">
+            <div class="program-icon">📚</div>
+            <h3>Junior k.g</h3>
+            <p>Academic readiness, confidence building and structured curriculum.</p>
+        </div>
+
+        <div class="program-card">
+            <div class="program-icon">🌟</div>
+            <h3>Senior k.g</h3>
+            <p>Strong preparation for primary school with balanced academics and activities.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= COUNTERS ================= -->
+<section class="counters reveal">
+
+    <div>
+        <h3 class="count" data-target="500">0</h3>
+        <p>Happy Students</p>
+    </div>
+
+    <div>
+        <h3 class="count" data-target="20">0</h3>
+        <p>Teachers</p>
+    </div>
+
+    <div>
+        <h3 class="count" data-target="10">0</h3>
+        <p>Years Experience</p>
+    </div>
+
+    <div>
+        <h3 class="count" data-target="100">0</h3>
+        <p>Safety %</p>
+    </div>
+
+</section>
+
+
+<!-- ================= YOUTUBE SECTION ================= -->
+<section class="youtube-section reveal">
+
+    <div class="youtube-container">
+
+        <div class="youtube-text">
+            <h2>See Our Little Stars in Action 🎬</h2>
+            <p>
+                Watch our classroom moments, celebrations and joyful
+                learning experiences directly from our official channel.
+            </p>
+
+            <a href="https://youtube.com/@mykidszonepreschool?si=LWmf2DADa4QLLTTS"
+               target="_blank"
+               class="youtube-btn">
+               Visit Our Channel
+            </a>
+        </div>
+
+        <div class="youtube-video">
+            <iframe 
+                src="https://www.youtube.com/embed/3ZlU2vmBzIY?autoplay=1&mute=1&loop=1&playlist=3ZlU2vmBzIY&controls=0&modestbranding=1"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials reveal">
+
+    <h2>What Parents Say ❤️</h2>
+
+    <div class="slider">
+        <div class="slide active">“Amazing teachers and care!”</div>
+        <div class="slide">“My child loves coming here daily.”</div>
+        <div class="slide">“Best preschool in town.”</div>
+    </div>
+
+</section>
+
+<script src="{{ url_for('static', filename='home.js') }}"></script>
+
+{% endblock %}

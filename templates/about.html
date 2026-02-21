@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}About Us | My Kids Zone{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===== HERO ===== -->
+<section class="about-hero">
+    <div class="container about-grid">
+
+        <div class="about-image">
+            <img src="{{ url_for('static', filename='images/founder.png') }}" alt="Founder">
+        </div>
+
+        <div class="about-text">
+            <h1>About <span>Our School</span></h1>
+
+            <p>
+                My Kids Zone Pre-Primary School was established in 2019 under the
+                leadership of <strong>Megha Vora</strong>, an experienced educator
+                with over 12 years of expertise in early childhood education.
+            </p>
+
+            <p>
+                Our mission is to create a nurturing, joyful, and stimulating
+                environment where every child feels valued, safe, and inspired to learn.
+            </p>
+
+            <p>
+                We focus on holistic development — nurturing academic,
+                social, emotional, and physical growth.
+            </p>
+
+            <div class="founder-quote">
+                “Every child is unique and deserves an education that celebrates
+                their individuality while building a strong foundation for lifelong learning.”
+                <span>– Megha Vora, Founder & Director</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ===== CORE VALUES ===== -->
+<section class="about-values">
+    <div class="container">
+        <h2>Our Core Values</h2>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <h4>Love</h4>
+                <p>We create a caring environment where children feel safe and supported.</p>
+            </div>
+
+            <div class="value-card">
+                <h4>Respect</h4>
+                <p>Every child’s individuality and ideas are valued.</p>
+            </div>
+
+            <div class="value-card">
+                <h4>Creativity</h4>
+                <p>We encourage imagination, curiosity, and innovation.</p>
+            </div>
+
+            <div class="value-card">
+                <h4>Excellence</h4>
+                <p>We maintain high standards in early childhood education.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="about-why">
+    <div class="container">
+        <h2>Why Choose My Kids Zone?</h2>
+
+        <div class="why-grid">
+            <div>
+                ✓ Experienced and qualified teachers
+            </div>
+            <div>
+                ✓ Safe and child-friendly campus
+            </div>
+            <div>
+                ✓ Activity-based learning approach
+            </div>
+            <div>
+                ✓ Individual attention for every child
+            </div>
+            <div>
+                ✓ Modern learning resources
+            </div>
+            <div>
+                ✓ Strong parent-school communication
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== CTA ===== -->
+<section class="about-cta">
+    <h2>Ready to Join Our Family?</h2>
+    <p>
+        Schedule a visit or submit an enquiry today.
+        We'd love to show you around and discuss how we
+        can support your child’s early learning journey.
+    </p>
+
+    <a href="/enquiry" class="cta-btn">
+        Submit Enquiry
+    </a>
+</section>
+
+{% endblock %}

@@ -1,0 +1,162 @@
+/* ===== HERO ===== */
+
+.about-hero{
+    padding:120px 0;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:30px;
+    box-shadow:0 30px 60px rgba(0,0,0,0.15);
+}
+
+.about-text h1{
+    font-size:52px;
+    margin-bottom:25px;
+}
+
+.about-text span{
+    color:#7ca982;
+}
+
+.about-text p{
+    margin-bottom:18px;
+    color:#555;
+    line-height:1.7;
+}
+
+.founder-quote{
+    margin-top:30px;
+    padding:25px;
+    background:#f5f7f6;
+    border-left:6px solid #7ca982;
+    border-radius:15px;
+    font-style:italic;
+}
+
+.founder-quote span{
+    display:block;
+    margin-top:12px;
+    font-style:normal;
+    font-weight:600;
+}
+
+
+/* ===== VALUES ===== */
+
+.about-values{
+    padding:100px 0;
+    background:#f8f9fb;
+    text-align:center;
+}
+
+.about-values h2{
+    margin-bottom:60px;
+    font-size:36px;
+}
+
+.values-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.value-card{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.value-card h4{
+    margin-bottom:15px;
+}
+
+
+/* ===== WHY ===== */
+
+.about-why{
+    padding:100px 0;
+}
+
+.about-why h2{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    font-size:16px;
+}
+
+
+/* ===== CTA ===== */
+
+.about-cta{
+    margin:100px auto;
+    max-width:1200px;
+    background:linear-gradient(135deg,#7ca982,#9dbf9e);
+    border-radius:30px;
+    padding:90px 20px;
+    text-align:center;
+    color:white;
+}
+
+.about-cta h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.about-cta p{
+    max-width:700px;
+    margin:0 auto 40px;
+}
+
+.cta-btn{
+    background:white;
+    color:#7ca982;
+    padding:15px 45px;
+    border-radius:40px;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.cta-btn:hover{
+    background:#f2f2f2;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:992px){
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .values-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:576px){
+    .values-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-text h1{
+        font-size:36px;
+    }
+}

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='mission.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===== HEADER ===== -->
+<section class="mv-header">
+    <h1>Our Mission & Vision</h1>
+    <p>
+        Guided by our core values, we strive to create an environment
+        where every child can thrive and reach their full potential.
+    </p>
+</section>
+
+
+<!-- ===== MISSION CARD ===== -->
+<section class="mv-card-section">
+
+    <div class="mv-large-card mission-card reveal">
+
+        <div class="mv-title-row">
+            <div class="mv-icon">❤</div>
+            <h2>Our Mission</h2>
+        </div>
+
+        <p class="mv-main-text">
+            To provide a safe, loving and inspiring environment where young minds
+            grow with curiosity, creativity and confidence.
+        </p>
+
+        <div class="mv-small-cards">
+            <div class="mv-mini-card">
+                <h4>Creative Growth</h4>
+                <p>Encouraging imagination and innovation.</p>
+            </div>
+
+            <div class="mv-mini-card">
+                <h4>Emotional Support</h4>
+                <p>Building confidence and compassion.</p>
+            </div>
+
+            <div class="mv-mini-card">
+                <h4>Safe Environment</h4>
+                <p>Ensuring security and care every day.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== VISION CARD ===== -->
+<section class="mv-card-section">
+
+    <div class="mv-large-card vision-card reveal">
+
+        <div class="mv-title-row">
+            <div class="mv-icon star">★</div>
+            <h2>Our Vision</h2>
+        </div>
+
+        <p class="mv-main-text">
+            To become a leading early childhood education center that nurtures
+            independent, compassionate and lifelong learners.
+        </p>
+
+        <div class="mv-small-cards">
+            <div class="mv-mini-card">
+                <h4>Community Leaders</h4>
+                <p>Develop compassionate, socially aware individuals.</p>
+            </div>
+
+            <div class="mv-mini-card">
+                <h4>Lifelong Learners</h4>
+                <p>Instill love for continuous learning and growth.</p>
+            </div>
+
+            <div class="mv-mini-card">
+                <h4>Excellence Standard</h4>
+                <p>Set benchmark in early childhood education.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== CORE VALUES ===== -->
+<section class="core-values-section reveal">
+
+    <div class="core-box">
+        <h2>Our Core Values</h2>
+        <p>
+            These values guide everything we do, from curriculum design
+            to daily interactions with our students and families.
+        </p>
+
+        <div class="core-values-grid">
+            <div class="core-pill">Love</div>
+            <div class="core-pill">Respect</div>
+            <div class="core-pill">Creativity</div>
+            <div class="core-pill">Excellence</div>
+        </div>
+    </div>
+
+</section>
+
+<script src="{{ url_for('static', filename='scroll.js') }}"></script>
+
+{% endblock %}

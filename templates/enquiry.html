@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='enquiry.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="enquiry-section">
+    <h1>Admission Enquiry ✨</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert-success">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/enquiry" class="enquiry-form">
+
+        <!-- Student Details -->
+        <input type="text" name="studentName" placeholder="Student Name" required>
+
+        <input type="date" name="dob" id="dob" required>
+
+        <input type="number" name="age" id="age" placeholder="Age (in years)" step="0.1" min="1" max="6" readonly required>
+
+        <!-- Parent Details -->
+        <input type="text" name="parentName" placeholder="Parent Name" required>
+
+        <input type="text" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+
+        <input type="email" name="email" placeholder="Email Address" required>
+
+        <textarea name="address" placeholder="Address" required></textarea>
+
+        <!-- Updated Programs -->
+        <select name="program" id="program" required>
+            <option value="">Select Program</option>
+            <option value="Playgroup">Playgroup (1.8 – 2.5 Years)</option>
+            <option value="Nursery">Nursery (2.5 – 3.5 Years)</option>
+            <option value="Junior KG">Junior KG (3.5 – 4.5 Years)</option>
+            <option value="Senior KG">Senior KG (4.5 – 5.5 Years)</option>
+        </select>
+
+        <textarea name="message" placeholder="Additional Message (Optional)"></textarea>
+
+        <button type="submit">Submit Enquiry</button>
+
+    </form>
+</section>
+
+<script>
+document.getElementById("dob").addEventListener("change", function () {
+
+    const dobValue = this.value;
+    if (!dobValue) return;
+
+    const dob = new Date(dobValue);
+    const today = new Date();
+
+    // Calculate precise age
+    const ageInYears = ((today - dob) / (365.25 * 24 * 60 * 60 * 1000));
+    const roundedAge = ageInYears.toFixed(1);
+
+    document.getElementById("age").value = roundedAge;
+
+    // Auto-select recommended program
+    const programSelect = document.getElementById("program");
+
+    let recommended = "";
+
+    if (ageInYears >= 1.8 && ageInYears < 2.5) {
+        recommended = "Playgroup";
+    } else if (ageInYears >= 2.5 && ageInYears < 3.5) {
+        recommended = "Nursery";
+    } else if (ageInYears >= 3.5 && ageInYears < 4.5) {
+        recommended = "Junior KG";
+    } else if (ageInYears >= 4.5 && ageInYears <= 5.5) {
+        recommended = "Senior KG";
+    }
+
+    if (recommended) {
+        programSelect.value = recommended;
+
+        // Highlight recommended option visually
+        programSelect.style.borderColor = "#FF6B6B";
+        programSelect.style.boxShadow = "0 0 0 3px rgba(255,107,107,0.2)";
+    } else {
+        programSelect.value = "";
+        programSelect.style.borderColor = "";
+        programSelect.style.boxShadow = "";
+    }
+});
+</script>
+
+
+{% endblock %}

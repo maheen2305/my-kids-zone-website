@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Parent Reviews{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='reviews.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="reviews-section">
+    <h1>What Parents Say ❤️</h1>
+
+    <div class="video-grid">
+        {% for video in videos %}
+        <div class="video-card">
+            <video controls>
+                <source src="{{ url_for('static', filename='reviews/' + video) }}" type="video/mp4">
+            </video>
+            <p>"Trusted by loving families 💖"</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

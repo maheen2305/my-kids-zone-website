@@ -1,0 +1,63 @@
+.program-banner {
+    padding: 120px 10%;
+    text-align: center;
+    background: linear-gradient(135deg,#4ecdc4,#ffe66d);
+}
+
+.program-banner h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.program-banner p {
+    font-size: 18px;
+    color: #333;
+}
+
+.gallery-section {
+    padding: 80px 8%;
+    background: white;
+}
+
+.gallery-section.alt {
+    background: #f8f9fb;
+}
+
+.gallery-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 28px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.gallery-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.gallery-card:hover {
+    transform: translateY(-6px);
+}
+
+.gallery-card img,
+.gallery-card video {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.quote {
+    padding: 15px;
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+}

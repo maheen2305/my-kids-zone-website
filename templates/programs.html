@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+
+{% block title %}Programs | My Kids Zone{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='programs.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===== PAGE HEADER ===== -->
+<section class="program-hero">
+    <h1>Our <span>Programs</span></h1>
+    <p>
+        Age-appropriate programs designed to nurture every child’s
+        unique potential and prepare them for lifelong learning.
+    </p>
+</section>
+
+
+<!-- ===== PROGRAM GRID ===== -->
+<section class="program-section">
+<div class="container">
+
+    <div class="program-grid">
+
+    <!-- Playgroup -->
+    <div class="program-card">
+        <div class="program-image">
+            <img src="{{ url_for('static', filename='images/playgroup.png') }}">
+            <div class="age-badge">1.8 – 2.5 Years</div>
+        </div>
+
+        <div class="program-content">
+            <h3>Playgroup</h3>
+            <p>
+                A warm and nurturing introduction to structured learning through
+                guided play, music and social interaction.
+            </p>
+
+            <div class="focus-areas">
+                <span>✓ Sensory play</span>
+                <span>✓ Motor skills</span>
+                <span>✓ Social bonding</span>
+                <span>✓ Music & movement</span>
+            </div>
+
+            <a href="/program/playgroup" class="view-gallery">
+                View Photo Gallery →
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Nursery -->
+    <div class="program-card">
+        <div class="program-image">
+            <img src="{{ url_for('static', filename='images/nursery.png') }}">
+            <div class="age-badge">2.5 – 3.5 Years</div>
+        </div>
+
+        <div class="program-content">
+            <h3>Nursery</h3>
+            <p>
+                Structured play-based learning introducing early literacy,
+                numeracy and creativity.
+            </p>
+
+            <div class="focus-areas">
+                <span>✓ Language skills</span>
+                <span>✓ Creative arts</span>
+                <span>✓ Story sessions</span>
+                <span>✓ Early numeracy</span>
+            </div>
+
+            <a href="/program/nursery" class="view-gallery">
+                View Photo Gallery →
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Junior KG -->
+    <div class="program-card">
+        <div class="program-image">
+            <img src="{{ url_for('static', filename='images/junior kg.jpeg') }}">
+            <div class="age-badge">3.5 – 4.5 Years</div>
+        </div>
+
+        <div class="program-content">
+            <h3>Junior KG</h3>
+            <p>
+                Strengthening literacy, numeracy and communication
+                foundations in a joyful classroom environment.
+            </p>
+
+            <div class="focus-areas">
+                <span>✓ Pre-reading</span>
+                <span>✓ Mathematics</span>
+                <span>✓ Science exploration</span>
+                <span>✓ Social skills</span>
+            </div>
+
+            <a href="/program/junior_kg" class="view-gallery">
+                View Photo Gallery →
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Senior KG -->
+    <div class="program-card">
+        <div class="program-image">
+            <img src="{{ url_for('static', filename='images/senior kg.png') }}">
+            <div class="age-badge">4.5 – 5.5 Years</div>
+        </div>
+
+        <div class="program-content">
+            <h3>Senior KG</h3>
+            <p>
+                Advanced preparation for primary school focusing on
+                academic readiness and confidence building.
+            </p>
+
+            <div class="focus-areas">
+                <span>✓ Reading & writing</span>
+                <span>✓ Problem solving</span>
+                <span>✓ Logical thinking</span>
+                <span>✓ Independence</span>
+            </div>
+
+            <a href="/program/senior_kg" class="view-gallery">
+                View Photo Gallery →
+            </a>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<!-- ===== POPULAR CLASSES ===== -->
+<section class="popular-classes">
+<div class="container">
+
+    <div class="popular-header">
+        <h2>Popular Classes</h2>
+        <p>Special enrichment programs beyond regular curriculum</p>
+    </div>
+
+    <div class="popular-grid">
+
+        <!-- Abacus -->
+        <div class="popular-card">
+
+            <div class="popular-top">
+                <span class="meta">🎂 Ages 4–14</span>
+                <span class="meta">⏰ 9am–1am</span>
+            </div>
+
+            <img src="{{ url_for('static', filename='images/abacus classes.png') }}">
+
+            <div class="popular-content">
+                <h3>Abacus Classes</h3>
+
+                <div class="rating">
+                    ★ ★ ★ ★ ☆ <span>(88)</span>
+                </div>
+
+                <div class="teacher-price">
+                    <span class="teacher">Sonali Jain</span>
+                    <span class="price">₹ 4000</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Vedic Maths -->
+        <div class="popular-card">
+
+            <div class="popular-top">
+                <span class="meta">🎂 Ages 3–9</span>
+                <span class="meta">⏰ 10am–12pm</span>
+            </div>
+
+            <img src="{{ url_for('static', filename='images/vedic maths.png') }}">
+
+            <div class="popular-content">
+                <h3>Vedic Maths</h3>
+
+                <div class="rating">
+                    ★ ★ ★ ★ ☆ <span>(44)</span>
+                </div>
+
+                <div class="teacher-price">
+                    <span class="teacher">Sonali Jain</span>
+                    <span class="price">₹ 6500</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Taekwondo -->
+        <div class="popular-card">
+
+            <div class="popular-top">
+                <span class="meta">🎂 Ages 3–8</span>
+                <span class="meta">⏰ 50 min</span>
+            </div>
+
+            <img src="{{ url_for('static', filename='images/Taekwondo.png') }}">
+
+            <div class="popular-content">
+                <h3>Taekwondo</h3>
+
+                <div class="rating">
+                    ★ ★ ★ ★ ☆ <span>(124)</span>
+                </div>
+
+                <div class="teacher-price">
+                    <span class="teacher">Sonali Jain</span>
+                    <span class="price">Free</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Pre-Primary -->
+        <div class="popular-card">
+
+            <div class="popular-top">
+                <span class="meta">🎂 Ages 3–4</span>
+                <span class="meta">⏰ 9am–1am</span>
+            </div>
+
+            <img src="{{ url_for('static', filename='images/pre-primary school.png') }}">
+
+            <div class="popular-content">
+                <h3>Pre-Primary School</h3>
+
+                <div class="rating">
+                    ★ ★ ★ ★ ☆ <span>(88)</span>
+                </div>
+
+                <div class="teacher-price">
+                    <span class="teacher">Sonali Jain</span>
+                    <span class="price">₹ 20000</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ===== CTA SECTION ===== -->
+<section class="program-cta">
+    <h2>Not sure which program is right for your child?</h2>
+    <p>We're here to help! Contact us for a personalized consultation.</p>
+    <a href="/enquiry" class="cta-btn">Get in Touch</a>
+</section>
+
+{% endblock %}

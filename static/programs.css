@@ -1,0 +1,221 @@
+/* ===== HERO ===== */
+.program-hero{
+    text-align:center;
+    padding:120px 20px 80px;
+}
+
+.program-hero h1{
+    font-size:56px;
+}
+
+.program-hero span{
+    color:#7ca982;
+}
+
+.program-hero p{
+    max-width:700px;
+    margin:20px auto 0;
+    font-size:18px;
+    color:#666;
+}
+
+
+/* ===== GRID ===== */
+.program-section{
+    padding:80px 0;
+}
+
+.program-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+
+/* ===== CARD ===== */
+.program-card{
+    background:#fff;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 20px 50px rgba(0,0,0,0.08);
+}
+
+
+/* ===== IMAGE ===== */
+.program-image{
+    position:relative;
+}
+
+.program-image img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.age-badge{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:white;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+}
+
+
+/* ===== CONTENT ===== */
+.program-content{
+    padding:25px;
+}
+
+.program-content h3{
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.program-content p{
+    color:#555;
+    margin-bottom:25px;
+    line-height:1.6;
+}
+
+
+/* ===== FOCUS AREAS ===== */
+.focus-areas{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+    margin-bottom:15px;
+    font-size:13px;
+    color:#666;
+}
+
+
+/* ===== LINK ===== */
+.view-gallery{
+    color:#7ca982;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.view-gallery:hover{
+    text-decoration:underline;
+}
+
+
+/* ===== CTA ===== */
+.program-cta{
+    margin:100px auto;
+    max-width:1200px;
+    background:linear-gradient(135deg,#7ca982,#9dbf9e);
+    border-radius:30px;
+    padding:80px 20px;
+    text-align:center;
+    color:white;
+}
+
+.program-cta h2{
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.program-cta p{
+    margin-bottom:30px;
+}
+
+.cta-btn{
+    background:white;
+    color:#7ca982;
+    padding:14px 40px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.cta-btn:hover{
+    background:#f5f5f5;
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:992px){
+    .program-grid{
+        grid-template-columns:1fr;
+    }
+}
+/* ===== SMALLER PREMIUM POPULAR CARDS ===== */
+
+.popular-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.popular-card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,0.06);
+    transition:0.3s ease;
+    font-size:14px;
+}
+
+.popular-card:hover{
+    transform:translateY(-6px);
+}
+
+/* Top meta row */
+.popular-top{
+    display:flex;
+    justify-content:space-between;
+    padding:12px 18px;
+    font-size:13px;
+    color:#666;
+    background:#f8faf9;
+}
+
+.popular-card img{
+    width:100%;
+    height:170px;   /* smaller image */
+    object-fit:cover;
+}
+
+.popular-content{
+    padding:18px;
+}
+
+.popular-content h3{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+/* Rating */
+.rating{
+    color:#f4c430;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.rating span{
+    color:#777;
+    font-size:13px;
+    margin-left:6px;
+}
+
+/* Teacher + Price */
+.teacher-price{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.teacher{
+    color:#444;
+}
+
+.price{
+    font-weight:600;
+    color:#7ca982;
+}
+

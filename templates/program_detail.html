@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}{{ program | capitalize }} Activities{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='program_detail.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="program-banner">
+    <h1>{{ program | capitalize }} Activities</h1>
+    <p>Exploring creativity, learning & joyful growth 🌈</p>
+</section>
+
+<section class="gallery-section">
+    <h2>📸 Classroom Moments</h2>
+    <div class="gallery-grid">
+        {% for image in images %}
+        <div class="gallery-card">
+            <img src="{{ url_for('static', filename='programs/' + program + '/' + image) }}">
+            <p class="quote">
+                {{ quotes[loop.index0 % quotes|length] }}
+            </p>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+
+<section class="gallery-section alt">
+    <h2>🎥 Activity Highlights</h2>
+    <div class="gallery-grid">
+        {% for video in videos %}
+        <div class="gallery-card">
+            <video controls>
+                <source src="{{ url_for('static', filename='programs/' + program + '/' + video) }}" type="video/mp4">
+            </video>
+            <p class="quote">
+                {{ quotes[loop.index0 % quotes|length] }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
