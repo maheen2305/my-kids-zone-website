@@ -219,3 +219,25 @@
     color:#7ca982;
 }
 
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+
+    .program-grid {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        gap: 25px;
+        padding: 0 15px;
+    }
+
+    .program-card {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .program-card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+}

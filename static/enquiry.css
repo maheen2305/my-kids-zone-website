@@ -151,3 +151,16 @@
     }
 
 }
+/* ---------- DOB LABEL FIX ---------- */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--dark-text);
+}

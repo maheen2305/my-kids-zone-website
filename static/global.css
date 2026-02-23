@@ -349,3 +349,15 @@ tr:nth-child(even) {
 .footer-admin a:hover {
     color: #4ECDC4;
 }
+
+/* ---------- GLOBAL MOBILE FIX ---------- */
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
