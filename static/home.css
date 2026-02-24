@@ -449,3 +449,27 @@ body{
         height:220px;
     }
 }
+
+/* ================= FOOTER SOCIAL ================= */
+
+.footer-social a {
+    display: block;
+    margin-top: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+/* YouTube color */
+.youtube-link {
+    color: #FF0000;
+}
+
+/* Instagram color */
+.instagram-link {
+    color: #E1306C;
+}
+
+.footer-social a:hover {
+    opacity: 0.8;
+}
