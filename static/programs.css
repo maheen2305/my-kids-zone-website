@@ -241,3 +241,36 @@
     }
 
 }
+/* ===== POPULAR GRID MOBILE FIX ===== */
+
+@media (max-width: 992px) {
+    .popular-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .popular-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 0 15px;
+    }
+
+    .popular-card {
+        width: 100%;
+    }
+
+    .popular-top {
+        font-size: 12px;
+        padding: 10px 14px;
+    }
+
+    .popular-content h3 {
+        font-size: 16px;
+    }
+
+    .rating {
+        font-size: 13px;
+    }
+}
