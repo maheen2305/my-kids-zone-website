@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, flash, session
 from dotenv import load_dotenv
 import sib_api_v3_sdk
 from sib_api_v3_sdk.rest import ApiException
-import psycopg2
+import psycopg
 from urllib.parse import urlparse
 from functools import wraps
 
@@ -18,7 +18,7 @@ app.secret_key = os.getenv("SECRET_KEY")
 def get_db_connection():
     url = urlparse(os.getenv("DATABASE_URL"))
 
-    conn = psycopg2.connect(
+    conn = psycopg.connect(
         host=url.hostname,
         database=url.path[1:],
         user=url.username,
