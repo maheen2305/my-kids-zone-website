@@ -27,7 +27,6 @@ def get_db_connection():
     )
     return conn
 
-
 def init_db():
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -52,7 +51,11 @@ def init_db():
     conn.close()
 
 
-init_db()
+try:
+    init_db()
+    print("Database connected ✅")
+except Exception as e:
+    print("Database error ❌:", e)
 
 # ================= BREVO EMAIL FUNCTION =================
 
