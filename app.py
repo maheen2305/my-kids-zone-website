@@ -1,9 +1,11 @@
 import os
-import sqlite3
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect, flash, session
 from dotenv import load_dotenv
 import sib_api_v3_sdk
 from sib_api_v3_sdk.rest import ApiException
+import psycopg2
+from urllib.parse import urlparse
+from functools import wraps
 
 # Load environment variables
 load_dotenv()
@@ -13,15 +15,26 @@ app.secret_key = os.getenv("SECRET_KEY")
 
 # ================= DATABASE =================
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-DB_PATH = os.path.join(BASE_DIR, "database.db")
+def get_db_connection():
+    url = urlparse(os.getenv("DATABASE_URL"))
+
+    conn = psycopg2.connect(
+        host=url.hostname,
+        database=url.path[1:],
+        user=url.username,
+        password=url.password,
+        port=url.port
+    )
+    return conn
+
 
 def init_db():
-    conn = sqlite3.connect(DB_PATH)
+    conn = get_db_connection()
     cursor = conn.cursor()
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS enquiries (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id SERIAL PRIMARY KEY,
             studentName TEXT,
             dob TEXT,
             age INTEGER,
@@ -33,8 +46,11 @@ def init_db():
             message TEXT
         )
     """)
+
     conn.commit()
+    cursor.close()
     conn.close()
+
 
 init_db()
 
@@ -77,11 +93,10 @@ def send_enquiry_email(studentName, dob, age, parentName, phone, email, address,
     except ApiException as e:
         print("Brevo Email Error:", e)
 
-from functools import wraps
-from flask import session
+# ================= ADMIN AUTH =================
 
 ADMIN_USERNAME = os.getenv("ADMIN_USERNAME")
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD") 
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
 
 def login_required(f):
     @wraps(f)
@@ -118,7 +133,6 @@ def program_detail(program_name):
             elif file.lower().endswith(".mp4"):
                 videos.append(file)
 
-    # Unique quotes list
     quotes = [
         "Tiny steps today, big dreams tomorrow 🌈",
         "Where curiosity turns into confidence ✨",
@@ -156,7 +170,7 @@ def reviews():
 
     return render_template("reviews.html", videos=video_files)
 
-# ================= ENQUIRY ROUTE =================
+# ================= ENQUIRY =================
 
 @app.route("/enquiry", methods=["GET", "POST"])
 def enquiry():
@@ -173,18 +187,19 @@ def enquiry():
         program = request.form["program"]
         message = request.form["message"]
 
-        # Save to database
-        conn = sqlite3.connect(DB_PATH)
+        conn = get_db_connection()
         cursor = conn.cursor()
+
         cursor.execute("""
             INSERT INTO enquiries
             (studentName, dob, age, parentName, phone, email, address, program, message)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (studentName, dob, age, parentName, phone, email, address, program, message))
+
         conn.commit()
+        cursor.close()
         conn.close()
 
-        # Send Email via Brevo
         send_enquiry_email(studentName, dob, age, parentName, phone, email, address, program, message)
 
         flash("Enquiry Submitted Successfully 🎉")
@@ -192,7 +207,7 @@ def enquiry():
 
     return render_template("enquiry.html")
 
-# ================= ADMIN LOGIN =================
+# ================= ADMIN =================
 
 @app.route("/admin/login", methods=["GET", "POST"])
 def admin_login():
@@ -215,16 +230,17 @@ def admin_logout():
     return redirect("/admin/login")
 
 
-# ================= ADMIN DASHBOARD =================
-
 @app.route("/admin/dashboard")
 @login_required
 def admin_dashboard():
 
-    conn = sqlite3.connect(DB_PATH)
+    conn = get_db_connection()
     cursor = conn.cursor()
+
     cursor.execute("SELECT * FROM enquiries ORDER BY id DESC")
     enquiries = cursor.fetchall()
+
+    cursor.close()
     conn.close()
 
     return render_template("admin_dashboard.html", enquiries=enquiries)
@@ -233,10 +249,13 @@ def admin_dashboard():
 @app.route("/admin/delete/<int:id>")
 @login_required
 def delete_enquiry(id):
-    conn = sqlite3.connect(DB_PATH)
+    conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM enquiries WHERE id=?", (id,))
+
+    cursor.execute("DELETE FROM enquiries WHERE id=%s", (id,))
+
     conn.commit()
+    cursor.close()
     conn.close()
 
     return redirect("/admin/dashboard")
@@ -244,4 +263,4 @@ def delete_enquiry(id):
 # ================= RUN =================
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
