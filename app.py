@@ -20,7 +20,7 @@ def get_db_connection():
 
     conn = psycopg.connect(
         host=url.hostname,
-        database=url.path[1:],
+        dbname=url.path[1:],
         user=url.username,
         password=url.password,
         port=url.port
