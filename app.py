@@ -6,6 +6,7 @@ from sib_api_v3_sdk.rest import ApiException
 import psycopg
 from urllib.parse import urlparse
 from functools import wraps
+from datetime import datetime
 
 # Load environment variables
 load_dotenv()
@@ -179,37 +180,58 @@ def reviews():
 def enquiry():
 
     if request.method == "POST":
+        try:
+            studentName = request.form["studentName"]
+            dob = request.form["dob"]
 
-        studentName = request.form["studentName"]
-        dob = request.form["dob"]
-        age = request.form["age"]
-        parentName = request.form["parentName"]
-        phone = request.form["phone"]
-        email = request.form["email"]
-        address = request.form["address"]
-        program = request.form["program"]
-        message = request.form["message"]
+            # ✅ Calculate age from DOB (safe)
+            age = None
+            if dob:
+                try:
+                    birth_date = datetime.strptime(dob, "%Y-%m-%d")
+                    today = datetime.today()
+                    age = today.year - birth_date.year - (
+                        (today.month, today.day) < (birth_date.month, birth_date.day)
+                    )
+                except Exception as e:
+                    print("DOB parsing error:", e)
+                    age = None
 
-        conn = get_db_connection()
-        cursor = conn.cursor()
+            parentName = request.form["parentName"]
+            phone = request.form["phone"]
+            email = request.form["email"]
+            address = request.form["address"]
+            program = request.form["program"]
+            message = request.form["message"]
 
-        cursor.execute("""
-            INSERT INTO enquiries
-            (studentName, dob, age, parentName, phone, email, address, program, message)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-        """, (studentName, dob, age, parentName, phone, email, address, program, message))
+            conn = get_db_connection()
+            cursor = conn.cursor()
 
-        conn.commit()
-        cursor.close()
-        conn.close()
+            cursor.execute("""
+                INSERT INTO enquiries
+                (studentName, dob, age, parentName, phone, email, address, program, message)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """, (studentName, dob, age, parentName, phone, email, address, program, message))
 
-        send_enquiry_email(studentName, dob, age, parentName, phone, email, address, program, message)
+            conn.commit()
+            cursor.close()
+            conn.close()
 
-        flash("Enquiry Submitted Successfully 🎉")
-        return redirect("/enquiry")
+            # ✅ Email (won’t break app if fails)
+            try:
+                send_enquiry_email(studentName, dob, age, parentName, phone, email, address, program, message)
+            except Exception as e:
+                print("Email error:", e)
+
+            flash("Enquiry Submitted Successfully 🎉")
+            return redirect("/enquiry")
+
+        except Exception as e:
+            print("ENQUIRY ERROR:", e)
+            flash("Something went wrong. Please try again.")
+            return redirect("/enquiry")
 
     return render_template("enquiry.html")
-
 # ================= ADMIN =================
 
 @app.route("/admin/login", methods=["GET", "POST"])
